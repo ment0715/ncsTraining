@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.empty
+{
+	width: 100%;
+	height: 600px;
+	text-align: center;
+}
+
+.divCenter
+{
+	position: absolute;
+	left: 50%;
+	text-align: center;
+}
+
+.divCenter2
+{
+	margin-left: -50%;
+}
+
+.btn input
+{
+	padding: 5px;
+	width: 100%;
+	fornt-size: 18px;
+}
+
+.btn
+{
+	margin: auto;
+	width:50%;
+}
