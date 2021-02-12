@@ -10,7 +10,17 @@ HgVo vo = (HgVo) request.getAttribute("hgvo");
 <meta charset="UTF-8">
 <title>화면구현 공부하기</title>
 <script type="text/javascript">
-	
+	function answer(){
+		var answer = document.getElementById('answer');
+		
+		if (!answer.value) {
+			alert('답을 입력하세요.');
+			answer.focus();
+			return
+		}
+		
+		document.getElementById('hgTform').submit();
+	}
 </script>
 </head>
 <body>
@@ -21,10 +31,11 @@ HgVo vo = (HgVo) request.getAttribute("hgvo");
 		<h3>화면구현 문제풀기</h3>
 			<div class="divCenter">
 				<div class="divCenter">
-					<form action="">
+					<form action="/hgTrainigProc.do" method="post" id="hgTform">
 						<table border="0">
 							<tr>
 								<th><%=vo.getHgno() %>번문제</th>
+								<input type="hidden" value="<%=vo.getHgno()%>" id="hgno" name="hgno">
 								<td><%=vo.getQuestion() %></td>
 							</tr>
 							<tr>
@@ -33,6 +44,7 @@ HgVo vo = (HgVo) request.getAttribute("hgvo");
 							</tr>
 						</table>
 					</form>
+					<button type="button" onclick="answer()">확인</button>
 				</div>		
 			</div>
 	</section>

@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import stg.common.Action;
 import stg.common.ActionForward;
-import stg.service.StgService;
+import stg.service.HgService;
 import stg.vo.HgVo;
 
 public class HgTrainingAction implements Action{
@@ -14,7 +14,7 @@ public class HgTrainingAction implements Action{
 		// 화면구현 공부하러가기 
 		
 		// 문제 가져오기
-		StgService svc = new StgService();
+		HgService svc = new HgService();
 		HgVo vo = svc.getQuestion();
 		
 		request.setAttribute("hgvo", vo);

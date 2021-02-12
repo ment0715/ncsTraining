@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import stg.common.Action;
 import stg.common.ActionForward;
-import stg.service.StgService;
+import stg.service.HgService;
 import stg.vo.HgVo;
 
 public class HgProcAction implements Action{
@@ -32,7 +32,7 @@ public class HgProcAction implements Action{
 		vo.setQuestion(question);
 		vo.setAnswer(answer);
 		
-		StgService svc = new StgService();
+		HgService svc = new HgService();
 		
 		svc.insertHg(vo);
 		
