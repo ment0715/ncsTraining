@@ -17,6 +17,7 @@ public class HgTrainingAction implements Action{
 		StgService svc = new StgService();
 		HgVo vo = svc.getQuestion();
 		
+		request.setAttribute("hgvo", vo);
 		
 		
 		ActionForward forward = new ActionForward();

@@ -17,6 +17,7 @@ public class StgService {
 		return hgno;
 	}
 	
+	// 문제번호 자동증가 가져오기 
 	public void insertHg(HgVo vo) throws Exception{
 		Connection con = new DBConnection().getConnection();
 		StgDao dao = new StgDao(con);
@@ -31,6 +32,7 @@ public class StgService {
 		con.close();
 	}
 	
+	// 문제 가져오기 
 	public HgVo getQuestion() throws Exception {
 		Connection con = new DBConnection().getConnection();
 		StgDao dao  = new StgDao(con);

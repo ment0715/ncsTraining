@@ -62,5 +62,30 @@ public class StgDao {
 	}
 	
 	// 문제 가져오기
+	public HgVo getQuestion() {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		HgVo vo = new HgVo();
+		
+		try {
+			pstmt = con.prepareStatement("select hgno, question from hg where hgno=1");
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				vo.setHgno(rs.getInt("hgno"));
+				vo.setQuestion(rs.getString("question"));
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				rs.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return vo;
+	}
 
 }
