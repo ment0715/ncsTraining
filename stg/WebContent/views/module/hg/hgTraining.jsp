@@ -45,6 +45,8 @@ HgVo vo = (HgVo) request.getAttribute("hgvo");
 						</table>
 					</form>
 					<button type="button" onclick="answer()">확인</button>
+					<button type="button" onclick="location.href='/hgNext.do?hgno=<%=vo.getHgno()%>''">다음문제</button>
+					<button type="button" onclick="location.href='/'">홈으로</button>
 				</div>		
 			</div>
 	</section>

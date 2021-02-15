@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import stg.action.HgAction;
+import stg.action.HgNextAction;
 import stg.action.HgProcAction;
 import stg.action.HgTrainingAction;
 import stg.action.HgTrainingProcAction;
@@ -63,6 +64,14 @@ public class StgController extends HttpServlet {
 			}
 		}else if (command.equals("/hgTrainigProc.do")) {
 			action = new HgTrainingProcAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/hgNext.do")) {
+			action = new HgNextAction();
 			
 			try {
 				forward = action.execute(request, response);

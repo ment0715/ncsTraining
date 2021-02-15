@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import stg.common.Action;
 import stg.common.ActionForward;
-import stg.service.StgService;
+import stg.service.HgService;
 
 public class HgAction implements Action {
 	@Override
@@ -13,7 +13,7 @@ public class HgAction implements Action {
 		// 화면구현 문제 만들기 페이지 이동
 		
 		// hgno 자동증가 가져오기 
-		StgService svc = new StgService();
+		HgService svc = new HgService();
 		int hgno = svc.getHgIncreaseNumber();
 		
 		request.setAttribute("hgno", hgno + 1);

@@ -116,5 +116,37 @@ public class HgDao {
 		return avo;
 
 	}
+	
+	// 화면구현 다음문제 가져오기
+	public HgVo getHgNextQuestion(HgVo hvo) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		HgVo vo = new HgVo();
+		
+		try {
+			pstmt = con.prepareStatement("select hgno, question, answer from hg where hgno=?+1");
+			pstmt.setInt(1, hvo.getHgno());
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+			vo.setHgno(rs.getInt("hgno"));
+			vo.setQuestion(rs.getString("question"));
+			vo.setAnswer(rs.getString("answer"));
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				rs.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return vo;
+	}
+	
+	
+	
 
 }

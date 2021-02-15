@@ -51,8 +51,22 @@ public class HgService {
 		HgVo avo = dao.getAnswer(vo);
 		
 		con.close();
+		return avo;
+		
+	}
+	
+	// 화면구현 다음문제 가져오기
+	public HgVo getHgNextQuestion(HgVo hvo) throws Exception{
+		Connection con = new DBConnection().getConnection();
+		HgDao dao = new HgDao(con);
+		
+		HgVo vo = dao.getHgNextQuestion(hvo);
+		
+		con.close();
+		
 		return vo;
 		
 	}
+	
 
 }

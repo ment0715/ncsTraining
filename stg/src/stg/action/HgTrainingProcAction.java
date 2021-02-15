@@ -17,27 +17,36 @@ public class HgTrainingProcAction implements Action{
 		String hgno = request.getParameter("hgno");
 		String answer = request.getParameter("answer");
 		
-		HgVo avo = new HgVo();
-		avo.setHgno(Integer.parseInt(hgno));
-		avo.setAnswer(answer);
+		HgVo vo = new HgVo();
+		vo.setHgno(Integer.parseInt(hgno));
+		vo.setAnswer(answer);
 		
 		HgService svc = new HgService();
 		
 		// 정답 가져오기 
-		HgVo vo = svc.getAnswer(avo);
+		HgVo avo = svc.getAnswer(vo);
 		
 	
 		// 오답일 경우
-		if (!answer.equals(vo.getAnswer())) {
+		if (!answer.equals(avo.getAnswer())) {
 			response.setContentType("text/html;charset=UTF-8;");
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('저런.. 다시 생각해보세요..');history.back();</script>");
+			out.println("<script>alert('다시 한번 생각해보세요.');history.back();</script>");
+			out.close();
+			return null;
+		}
+		
+		// 정답일 경우
+		if (answer.equals(avo.getAnswer())) {
+			response.setContentType("text/html;charset=UTF-8;");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('정답입니다.');history.back();</script>");
 			out.close();
 			return null;
 		}
 
 		ActionForward forward = new ActionForward();
-		forward.setPath("/views/module/hg/hgTraining.jsp");
+		forward.setPath("/hgTrainigProc.do");
 		return forward;
 	}
 
