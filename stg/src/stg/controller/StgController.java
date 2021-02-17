@@ -46,7 +46,7 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if (command.equals("/hgProc.do")) {
+		}else if (command.equals("/hgProc.do")) { // 화면구현 문제 만들기
 			action = new HgProcAction();
 			
 			try {
@@ -54,7 +54,7 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if (command.equals("/hgTraining.do")) {
+		}else if (command.equals("/hgTraining.do")) { // 화면구현 문제풀기 
 			action = new HgTrainingAction();
 			
 			try {
@@ -62,7 +62,7 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if (command.equals("/hgTrainigProc.do")) {
+		}else if (command.equals("/hgTrainigProc.do")) { // 답 확인하기
 			action = new HgTrainingProcAction();
 			
 			try {
@@ -70,7 +70,7 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if (command.equals("/hgNext.do")) {
+		}else if (command.equals("/hgNext.do")) { // 다음문제 이동하기
 			action = new HgNextAction();
 			
 			try {

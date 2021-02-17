@@ -19,7 +19,7 @@ HgVo vo = (HgVo) request.getAttribute("hgvo");
 			return
 		}
 		
-		document.getElementById('hgTform').submit();
+		document.getElementById('hgTForm').submit();
 	}
 </script>
 </head>
@@ -28,10 +28,10 @@ HgVo vo = (HgVo) request.getAttribute("hgvo");
 		<jsp:include page="/views/common/header.jsp"></jsp:include>
 	</header>
 	<section class="empty">
-		<h3>화면구현 문제풀기</h3>
+		<h3>화면구현 Training</h3>
 			<div class="divCenter">
 				<div class="divCenter">
-					<form action="/hgTrainigProc.do" method="post" id="hgTform">
+					<form action="/hgTrainigProc.do" method="post" id="hgTForm">
 						<table border="0">
 							<tr>
 								<th><%=vo.getHgno() %>번문제</th>
@@ -45,7 +45,7 @@ HgVo vo = (HgVo) request.getAttribute("hgvo");
 						</table>
 					</form>
 					<button type="button" onclick="answer()">확인</button>
-					<button type="button" onclick="location.href='/hgNext.do?hgno=<%=vo.getHgno()%>''">다음문제</button>
+					<button type="button" onclick="location.href='/hgNext.do?hgno=<%=vo.getHgno()%>'">다음문제</button>
 					<button type="button" onclick="location.href='/'">홈으로</button>
 				</div>		
 			</div>

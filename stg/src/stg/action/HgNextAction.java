@@ -24,7 +24,7 @@ public class HgNextAction implements Action{
 		HgVo vo = svc.getHgNextQuestion(hvo);
 		
 		// 다음문제가 없을경우 예외처리
-		if (hvo.getQuestion() == null) {
+		if (vo.getQuestion() == null) {
 			response.setContentType("text/html;charset=UTF-8;");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('다음문제가 없습니다.');history.back();</script>");
@@ -32,6 +32,7 @@ public class HgNextAction implements Action{
 			return null;
 		}
 		
+		request.setAttribute("hgNextVo", vo);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("/views/module/hg/hgNextQuestion.jsp");
