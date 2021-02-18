@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-SqlhyVo vo = (SqlhyVo) request.getAttribute("sqlgyVo");
+SqlhyVo vo = (SqlhyVo) request.getAttribute("sqlhyVo");
 %>
 <!DOCTYPE html>
 <html>
@@ -35,7 +35,7 @@ SqlhyVo vo = (SqlhyVo) request.getAttribute("sqlgyVo");
 					<form action="/sqlhyTrainigProc.do" method="post" id="sqlhyTForm">
 						<table border="0">
 							<tr>
-								<th><%=vo.getSqlhyno() %>번문제</th>
+								<th><%=vo.getSqlhyno()%>번문제</th>
 								<input type="hidden" value="<%=vo.getSqlhyno()%>" id="sqlhyno" name="sqlhyno">
 								<td><%=vo.getQuestion() %></td>
 							</tr>
@@ -46,7 +46,7 @@ SqlhyVo vo = (SqlhyVo) request.getAttribute("sqlgyVo");
 						</table>
 					</form>
 					<button type="button" onclick="answer()">확인</button>
-					<button type="button" onclick="location.href='/puNext.do?puno=<%=vo.getSqlhyno()%>'">다음문제</button>
+					<button type="button" onclick="location.href='/sqlhyNext.do?sqlhyno=<%=vo.getSqlhyno()%>'">다음문제</button>
 					<button type="button" onclick="location.href='/'">홈으로</button>
 				</div>		
 			</div>
