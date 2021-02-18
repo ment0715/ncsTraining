@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-int hgno = (int) request.getAttribute("hgno");
+int sqlhyno = (int) request.getAttribute("sqlhyno");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>화면구현 트레이닝 만들기</title>
-<link rel="stylesheet" href="/views/css/module/hg/hgMake.css" />
+<title>프로그래밍언어활용 트레이닝 만들기</title>
+<link rel="stylesheet" href="/views/css/module/sqlhy/sqlhyMake.css" />
 <script type="text/javascript">
-	function hgProc() {
+	function sqlhyProc() {
 		var question = document.getElementById('question');
 		var answer = document.getElementById('answer');
 		
@@ -26,7 +26,7 @@ int hgno = (int) request.getAttribute("hgno");
 			return
 		}
 		
-		document.getElementById('hgForm').submit();
+		document.getElementById('sqlhyForm').submit();
 	}
 </script>
 </head>
@@ -35,14 +35,14 @@ int hgno = (int) request.getAttribute("hgno");
 		<jsp:include page="/views/common/header.jsp"></jsp:include>
 	</header>
 	<section class="empty">
-		<h3>화면구현 트레이닝 만들기</h3>
+		<h3>SQL활용 트레이닝 만들기</h3>
 		<div class="divCenter">
 			<div class="divCenter2">
-				<form action="/hgProc.do" id="hgForm">
+				<form action="/sqlhyProc.do" id="sqlhyForm">
 					<table border="0">
 						<tr>
-							<th><%=hgno%>번문제</th>
-							<input type="hidden" id="hgno" name="hgno" value="<%=hgno%>">
+							<th><%=sqlhyno%>번문제</th>
+							<input type="hidden" id="sqlhyno" name="sqlhyno" value="<%=sqlhyno%>">
 							<td><input type="text" id="question" name="question"
 								size="200"></td>
 						</tr>
@@ -53,8 +53,8 @@ int hgno = (int) request.getAttribute("hgno");
 					</table>
 				</form>
 				<div class="btn">
-					<button type="button" onclick="hgProc()">만들기</button>
-					<button type="button" onclick="location.href='/hgTraining.do'">공부하러가기</button>
+					<button type="button" onclick="sqlhyProc()">만들기</button>
+					<button type="button" onclick="location.href='/sqlhyTraining.do'">공부하러가기</button>
 					<button type="button" onclick="location.href='/'">홈으로</button>
 				</div>
 			</div>

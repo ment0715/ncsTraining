@@ -8,6 +8,7 @@ import stg.vo.HgVo;
 
 public class HgService {
 	
+	// 화면구현 문제번호 자동증가 가져오기 
 	public int getHgIncreaseNumber() throws Exception {
 		Connection con = new DBConnection().getConnection();
 		HgDao dao = new HgDao(con);
@@ -17,7 +18,7 @@ public class HgService {
 		return hgno;
 	}
 	
-	// 화면구현 문제번호 자동증가 가져오기 
+	// 화면구현 문제 만들기 
 	public void insertHg(HgVo vo) throws Exception{
 		Connection con = new DBConnection().getConnection();
 		HgDao dao = new HgDao(con);

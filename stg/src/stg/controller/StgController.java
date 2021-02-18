@@ -14,6 +14,16 @@ import stg.action.HgNextAction;
 import stg.action.HgProcAction;
 import stg.action.HgTrainingAction;
 import stg.action.HgTrainingProcAction;
+import stg.action.PuAction;
+import stg.action.PuNextAction;
+import stg.action.PuProcAction;
+import stg.action.PuTrainingAction;
+import stg.action.PuTrainingProcAction;
+import stg.action.SqlhyAction;
+import stg.action.SqlhyNextAction;
+import stg.action.SqlhyProcAction;
+import stg.action.SqlhyTrainingAction;
+import stg.action.SqlhyTrainingProcAction;
 import stg.common.Action;
 import stg.common.ActionForward;
 
@@ -38,7 +48,7 @@ public class StgController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		
-		if (command.equals("/hgAction.do")) {
+		if (command.equals("/hgAction.do")) { // 화면구현 트레이닝만들기 이동
 			action = new HgAction();
 			
 			try {
@@ -62,7 +72,7 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if (command.equals("/hgTrainigProc.do")) { // 답 확인하기
+		}else if (command.equals("/hgTrainigProc.do")) { // 화면구현 답 확인하기
 			action = new HgTrainingProcAction();
 			
 			try {
@@ -70,7 +80,7 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if (command.equals("/hgNext.do")) { // 다음문제 이동하기
+		}else if (command.equals("/hgNext.do")) { // 화면구현 다음문제 이동하기
 			action = new HgNextAction();
 			
 			try {
@@ -78,7 +88,88 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if (command.equals("/puAction.do")) { // 프로그래밍언어활용 트레이닝만들기 이동
+			action = new PuAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/puProc.do")) { // 프로그래밍언어활용 문제 만들기
+			action = new PuProcAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/puTraining.do")) { // 프로그래밍언어활용 문제풀기 
+			action = new PuTrainingAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/puTrainigProc.do")) { // 프로그래밍언어활용 답 확인하기
+			action = new PuTrainingProcAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/puNext.do")) { // 프로그래밍언어활용 다음문제 이동하기
+			action = new PuNextAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/sqlhyAction.do")) { // SQL활용 트레이닝만들기 이동
+			action = new SqlhyAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/sqlhyProc.do")) { // SQL활용 문제 만들기
+			action = new SqlhyProcAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/sqlhyTraining.do")) { // SQL활용 문제풀기 
+			action = new SqlhyTrainingAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/sqlhyTrainigProc.do")) { // SQL활용 답 확인하기
+			action = new SqlhyTrainingProcAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/sqlhyNext.do")) { // SQL활용 다음문제 이동하기
+			action = new SqlhyNextAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
 		
 		
 		

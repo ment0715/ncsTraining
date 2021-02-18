@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-int hgno = (int) request.getAttribute("hgno");
+int puno = (int) request.getAttribute("puno");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>화면구현 트레이닝 만들기</title>
-<link rel="stylesheet" href="/views/css/module/hg/hgMake.css" />
+<title>프로그래밍언어활용 트레이닝 만들기</title>
+<link rel="stylesheet" href="/views/css/module/pu/puMake.css" />
 <script type="text/javascript">
-	function hgProc() {
+	function puProc() {
 		var question = document.getElementById('question');
 		var answer = document.getElementById('answer');
 		
@@ -26,7 +26,7 @@ int hgno = (int) request.getAttribute("hgno");
 			return
 		}
 		
-		document.getElementById('hgForm').submit();
+		document.getElementById('puForm').submit();
 	}
 </script>
 </head>
@@ -35,14 +35,14 @@ int hgno = (int) request.getAttribute("hgno");
 		<jsp:include page="/views/common/header.jsp"></jsp:include>
 	</header>
 	<section class="empty">
-		<h3>화면구현 트레이닝 만들기</h3>
+		<h3>응용프로그래밍언어활용 트레이닝 만들기</h3>
 		<div class="divCenter">
 			<div class="divCenter2">
-				<form action="/hgProc.do" id="hgForm">
+				<form action="/puProc.do" id="puForm">
 					<table border="0">
 						<tr>
-							<th><%=hgno%>번문제</th>
-							<input type="hidden" id="hgno" name="hgno" value="<%=hgno%>">
+							<th><%=puno%>번문제</th>
+							<input type="hidden" id="puno" name="puno" value="<%=puno%>">
 							<td><input type="text" id="question" name="question"
 								size="200"></td>
 						</tr>
@@ -53,8 +53,8 @@ int hgno = (int) request.getAttribute("hgno");
 					</table>
 				</form>
 				<div class="btn">
-					<button type="button" onclick="hgProc()">만들기</button>
-					<button type="button" onclick="location.href='/hgTraining.do'">공부하러가기</button>
+					<button type="button" onclick="puProc()">만들기</button>
+					<button type="button" onclick="location.href='/puTraining.do'">공부하러가기</button>
 					<button type="button" onclick="location.href='/'">홈으로</button>
 				</div>
 			</div>

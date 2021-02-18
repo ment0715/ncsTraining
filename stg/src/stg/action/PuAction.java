@@ -5,23 +5,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import stg.common.Action;
 import stg.common.ActionForward;
-import stg.service.HgService;
-import stg.vo.HgVo;
+import stg.service.PuService;
 
-public class HgTrainingAction implements Action{
+public class PuAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 화면구현 공부하러가기 
+		// 프로그래밍언어활용 트레이닝 만들기 페이지 이동
 		
-		// 문제 가져오기
-		HgService svc = new HgService();
-		HgVo vo = svc.getQuestion();
+		// puno 자동증가 가져오기 
+		PuService svc = new PuService();
+		int puno = svc.getPuIncreaseNumber();
 		
-		request.setAttribute("hgVo", vo);
-		
+		request.setAttribute("puno", puno + 1);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("views/module/hg/hgTraining.jsp");
+		forward.setPath("/views/module/pu/puMake.jsp");
 		return forward;
 	}
+
 }

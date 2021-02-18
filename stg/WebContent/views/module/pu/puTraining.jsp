@@ -1,8 +1,9 @@
-<%@page import="stg.vo.HgVo"%>
+
+<%@page import="stg.vo.PuVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-HgVo vo = (HgVo) request.getAttribute("hgVo");
+PuVo vo = (PuVo) request.getAttribute("puVo");
 %>
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,7 @@ HgVo vo = (HgVo) request.getAttribute("hgVo");
 			return
 		}
 		
-		document.getElementById('hgTForm').submit();
+		document.getElementById('puTForm').submit();
 	}
 </script>
 </head>
@@ -31,11 +32,11 @@ HgVo vo = (HgVo) request.getAttribute("hgVo");
 		<h3>화면구현 Training</h3>
 			<div class="divCenter">
 				<div class="divCenter">
-					<form action="/hgTrainigProc.do" method="post" id="hgTForm">
+					<form action="/puTrainigProc.do" method="post" id="puTForm">
 						<table border="0">
 							<tr>
-								<th><%=vo.getHgno() %>번문제</th>
-								<input type="hidden" value="<%=vo.getHgno()%>" id="hgno" name="hgno">
+								<th><%=vo.getPuno() %>번문제</th>
+								<input type="hidden" value="<%=vo.getPuno()%>" id="puno" name="puno">
 								<td><%=vo.getQuestion() %></td>
 							</tr>
 							<tr>
@@ -45,7 +46,7 @@ HgVo vo = (HgVo) request.getAttribute("hgVo");
 						</table>
 					</form>
 					<button type="button" onclick="answer()">확인</button>
-					<button type="button" onclick="location.href='/hgNext.do?hgno=<%=vo.getHgno()%>'">다음문제</button>
+					<button type="button" onclick="location.href='/puNext.do?puno=<%=vo.getPuno()%>'">다음문제</button>
 					<button type="button" onclick="location.href='/'">홈으로</button>
 				</div>		
 			</div>

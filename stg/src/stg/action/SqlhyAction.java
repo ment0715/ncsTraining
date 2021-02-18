@@ -5,23 +5,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import stg.common.Action;
 import stg.common.ActionForward;
-import stg.service.HgService;
-import stg.vo.HgVo;
+import stg.service.SqlhyService;
 
-public class HgTrainingAction implements Action{
+public class SqlhyAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 화면구현 공부하러가기 
+		// sql활용 트레이닝 만들기 페이지 이동
 		
-		// 문제 가져오기
-		HgService svc = new HgService();
-		HgVo vo = svc.getQuestion();
+		// sqlhyno 자동증가 가져오기 
+		SqlhyService svc = new SqlhyService();
+		int sqlhyno = svc.getSqlhyIncreaseNumber();
 		
-		request.setAttribute("hgVo", vo);
-		
+		request.setAttribute("sqlhyno", sqlhyno + 1);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("views/module/hg/hgTraining.jsp");
+		forward.setPath("/views/module/sqlhy/sqlhyMake.jsp");
 		return forward;
 	}
+
 }
