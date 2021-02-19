@@ -7,11 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import stg.common.Action;
 import stg.common.ActionForward;
-import stg.service.HgService;
-import stg.service.PuService;
 import stg.service.SqlhyService;
-import stg.vo.HgVo;
-import stg.vo.PuVo;
 import stg.vo.SqlhyVo;
 
 public class SqlhyTrainingProcAction implements Action{

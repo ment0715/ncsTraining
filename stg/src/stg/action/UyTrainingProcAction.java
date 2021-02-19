@@ -7,24 +7,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import stg.common.Action;
 import stg.common.ActionForward;
-import stg.service.PuService;
-import stg.vo.PuVo;
+import stg.service.UyService;
+import stg.vo.UyVo;
 
-public class PuTrainingProcAction implements Action{
+public class UyTrainingProcAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 프로그래밍언어활용 문제 풀이 바로하기
-		String puno = request.getParameter("puno");
+		// 응용SW기초기술활용 문제 풀이 바로하기
+		String uyno = request.getParameter("uyno");
 		String answer = request.getParameter("answer");
 		
-		PuVo vo = new PuVo();
-		vo.setPuno(Integer.parseInt(puno));
+		UyVo vo = new UyVo();
+		vo.setUyno(Integer.parseInt(uyno));
 		vo.setAnswer(answer);
 		
-		PuService svc = new PuService();
+		UyService svc = new UyService();
 		
 		// 정답 가져오기 
-		PuVo avo = svc.getAnswer(vo);
+		UyVo avo = svc.getAnswer(vo);
 		
 	
 		// 오답일 경우
@@ -46,7 +46,7 @@ public class PuTrainingProcAction implements Action{
 		}
 
 		ActionForward forward = new ActionForward();
-		forward.setPath("/puTrainigProc.do");
+		forward.setPath("/uyTrainigProc.do");
 		return forward;
 	}
 

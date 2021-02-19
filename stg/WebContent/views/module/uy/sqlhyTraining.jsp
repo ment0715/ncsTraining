@@ -1,15 +1,14 @@
-
-<%@page import="stg.vo.SqlhyVo"%>
+<%@page import="stg.vo.UyVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-SqlhyVo vo = (SqlhyVo) request.getAttribute("sqlhyVo");
+UyVo vo = (UyVo) request.getAttribute("uyVo");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SQL활용 Training</title>
+<title>응용SW기초기술활용 Training</title>
 <script type="text/javascript">
 	function answer(){
 		var answer = document.getElementById('answer');
@@ -20,7 +19,7 @@ SqlhyVo vo = (SqlhyVo) request.getAttribute("sqlhyVo");
 			return
 		}
 		
-		document.getElementById('sqlhyTForm').submit();
+		document.getElementById('uyTForm').submit();
 	}
 </script>
 </head>
@@ -29,14 +28,14 @@ SqlhyVo vo = (SqlhyVo) request.getAttribute("sqlhyVo");
 		<jsp:include page="/views/common/header.jsp"></jsp:include>
 	</header>
 	<section class="empty">
-		<h3>SQL활용 Training</h3>
+		<h3>응용SW기초기술활용 Training</h3>
 			<div class="divCenter">
 				<div class="divCenter">
-					<form action="/sqlhyTrainigProc.do" method="post" id="sqlhyTForm">
+					<form action="/uyTrainigProc.do" method="post" id="uyTForm">
 						<table border="0">
 							<tr>
-								<th><%=vo.getSqlhyno()%>번문제</th>
-								<input type="hidden" value="<%=vo.getSqlhyno()%>" id="sqlhyno" name="sqlhyno">
+								<th><%=vo.getUyno()%>번문제</th>
+								<input type="hidden" value="<%=vo.getUyno()%>" id="uyno" name="uyno">
 								<td><%=vo.getQuestion() %></td>
 							</tr>
 							<tr>
@@ -46,7 +45,7 @@ SqlhyVo vo = (SqlhyVo) request.getAttribute("sqlhyVo");
 						</table>
 					</form>
 					<button type="button" onclick="answer()">확인</button>
-					<button type="button" onclick="location.href='/sqlhyNext.do?sqlhyno=<%=vo.getSqlhyno()%>'">다음문제</button>
+					<button type="button" onclick="location.href='/uyNext.do?uyno=<%=vo.getUyno()%>'">다음문제</button>
 					<button type="button" onclick="location.href='/'">홈으로</button>
 				</div>		
 			</div>

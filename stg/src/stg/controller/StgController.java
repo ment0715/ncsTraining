@@ -24,6 +24,11 @@ import stg.action.SqlhyNextAction;
 import stg.action.SqlhyProcAction;
 import stg.action.SqlhyTrainingAction;
 import stg.action.SqlhyTrainingProcAction;
+import stg.action.UyAction;
+import stg.action.UyNextAction;
+import stg.action.UyProcAction;
+import stg.action.UyTrainingAction;
+import stg.action.UyTrainingProcAction;
 import stg.common.Action;
 import stg.common.ActionForward;
 
@@ -168,7 +173,48 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if (command.equals("/uyAction.do")) { // 응용SW기초기술활용 트레이닝만들기 이동
+			action = new UyAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/uyProc.do")) { // 응용SW기초기술활용 문제 만들기
+			action = new UyProcAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/uyTraining.do")) { // 응용SW기초기술활용 문제풀기 
+			action = new UyTrainingAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/uyTrainigProc.do")) { // 응용SW기초기술활용 답 확인하기
+			action = new UyTrainingProcAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/uyNext.do")) { // 응용SW기초기술활용 다음문제 이동하기
+			action = new UyNextAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
 		
 		
 		
