@@ -4,29 +4,30 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import stg.vo.UyVo;
+import stg.vo.AktsVo;
 
 
 
-public class UyDao {
+
+public class AktsDao {
 	private Connection con;
 
-	public UyDao(Connection con) {
+	public AktsDao(Connection con) {
 		this.con = con;
 	}
 
-	// uyno 자동증가 가져오기
-	public int getUyIncreaseNumber() {
+	// aktsno 자동증가 가져오기
+	public int getAktsIncreaseNumber() {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		int uyno = 1;
+		int aktsno = 1;
 
 		try {
-			pstmt = con.prepareStatement("select max(uyno) as uyno from uy");
+			pstmt = con.prepareStatement("select max(aktsno) as aktsno from akts");
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				uyno = rs.getInt("uyno");
+				aktsno = rs.getInt("aktsno");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -38,17 +39,17 @@ public class UyDao {
 				e.printStackTrace();
 			}
 		}
-		return uyno;
+		return aktsno;
 	}
-
-	// 응용SW기초기술활용 문제 입력하기
-	public int insertUy(UyVo vo) {
+	
+	// 애플리케이션테스트수행 문제 입력하기
+	public int insertAkts(AktsVo vo) {
 		PreparedStatement pstmt = null;
 		int count = 0;
 
 		try {
-			pstmt = con.prepareStatement("insert into uy (uyno, question, answer) values (?,?,?)");
-			pstmt.setInt(1, vo.getUyno());
+			pstmt = con.prepareStatement("insert into akts (aktsno, question, answer) values (?,?,?)");
+			pstmt.setInt(1, vo.getAktsno());
 			pstmt.setString(2, vo.getQuestion());
 			pstmt.setString(3, vo.getAnswer());
 			count = pstmt.executeUpdate();
@@ -64,18 +65,18 @@ public class UyDao {
 		return count;
 	}
 
-	// 응용SW기초기술활용 문제 가져오기
-	public UyVo getQuestion() {
+	// 애플리케이션테스트수행 문제 가져오기
+	public AktsVo getQuestion() {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		UyVo vo = new UyVo();
+		AktsVo vo = new AktsVo();
 
 		try {
-			pstmt = con.prepareStatement("select uyno, question from uy where uyno=1");
+			pstmt = con.prepareStatement("select aktsno, question from akts where aktsno=1");
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				vo.setUyno(rs.getInt("uyno"));
+				vo.setAktsno(rs.getInt("aktsno"));
 				vo.setQuestion(rs.getString("question"));
 			}
 		} catch (Exception e) {
@@ -91,19 +92,19 @@ public class UyDao {
 		return vo;
 	}
 
-	// 응용SW기초기술활용 정답 가져오기
-	public UyVo getAnswer(UyVo vo) {
+	// 애플리케이션테스트수행 정답 가져오기
+	public AktsVo getAnswer(AktsVo vo) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		UyVo avo = new UyVo();
+		AktsVo avo = new AktsVo();
 
 		try {
-			pstmt = con.prepareStatement("select uyno, answer from uy where uyno=?");
-			pstmt.setInt(1, vo.getUyno());
+			pstmt = con.prepareStatement("select aktsno, answer from akts where aktsno=?");
+			pstmt.setInt(1, vo.getAktsno());
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				avo.setUyno(rs.getInt("uyno"));
+				avo.setAktsno(rs.getInt("aktsno"));
 				avo.setAnswer(rs.getString("answer"));
 			}
 		} catch (Exception e) {
@@ -120,19 +121,19 @@ public class UyDao {
 
 	}
 	
-	// 응용SW기초기술활용 다음문제 가져오기
-	public UyVo getUyNextQuestion(UyVo uvo) {
+	// 애플리케이션테스트수행 다음문제 가져오기
+	public AktsVo getAktsNextQuestion(AktsVo aktsvo) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		UyVo vo = new UyVo();
+		AktsVo vo = new AktsVo();
 		
 		try {
-			pstmt = con.prepareStatement("select uyno, question, answer from uy where uyno=?+1");
-			pstmt.setInt(1, uvo.getUyno());
+			pstmt = con.prepareStatement("select aktsno, question, answer from akts where aktsno=?+1");
+			pstmt.setInt(1, aktsvo.getAktsno());
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-			vo.setUyno(rs.getInt("uyno"));
+			vo.setAktsno(rs.getInt("aktsno"));
 			vo.setQuestion(rs.getString("question"));
 			vo.setAnswer(rs.getString("answer"));
 			}

@@ -39,6 +39,7 @@ public class HgDao {
 		return hgno;
 	}
 
+	// 화면구현 문제 입력하기
 	public int insertHg(HgVo vo) {
 		PreparedStatement pstmt = null;
 		int count = 0;

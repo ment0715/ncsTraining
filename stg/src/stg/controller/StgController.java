@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import stg.action.AktsAction;
+import stg.action.AktsNextAction;
+import stg.action.AktsProcAction;
+import stg.action.AktsTrainingAction;
+import stg.action.AktsTrainingProcAction;
 import stg.action.HgAction;
 import stg.action.HgNextAction;
 import stg.action.HgProcAction;
@@ -213,7 +218,48 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if (command.equals("/aktsAction.do")) { // 애플리케이션테스트수행 트레이닝만들기 이동
+			action = new AktsAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/aktsProc.do")) { // 애플리케이션테스트수행 문제 만들기
+			action = new AktsProcAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/aktsTraining.do")) { // 애플리케이션테스트수행 문제풀기 
+			action = new AktsTrainingAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/aktsTrainigProc.do")) { // 애플리케이션테스트수행 답 확인하기
+			action = new AktsTrainingProcAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/aktsNext.do")) { // 애플리케이션테스트수행 다음문제 이동하기
+			action = new AktsNextAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
 		
 		
 		

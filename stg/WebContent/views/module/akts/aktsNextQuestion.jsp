@@ -1,14 +1,14 @@
-<%@page import="stg.vo.PuVo"%>
+<%@page import="stg.vo.AktsVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-PuVo vo = (PuVo) request.getAttribute("puNextVo");
-%>
+	<%
+	AktsVo vo = (AktsVo) request.getAttribute("aktsNextVo");
+	%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>프로그래밍언어활용 Training</title>
+<title>애플리케이션테스트수행 Training</title>
 <script type="text/javascript">
 	function answer(){
 		var answer = document.getElementById('answer');
@@ -19,7 +19,7 @@ PuVo vo = (PuVo) request.getAttribute("puNextVo");
 			return
 		}
 		
-		document.getElementById('puNForm').submit();
+		document.getElementById('aktsNForm').submit();
 	}
 </script>
 </head>
@@ -30,11 +30,11 @@ PuVo vo = (PuVo) request.getAttribute("puNextVo");
 	<section>
 		<div class="divCenter">
 			<div class="divCenter2">
-				<form action="/puTrainigProc.do" method="post" id="puNForm">
+				<form action="/aktsTrainigProc.do" method="post" id="aktsNForm">
 					<table border="0">
 						<tr>
-							<th><%=vo.getPuno() %>번문제</th>
-							<input type="hidden" value="<%=vo.getPuno()%>" id="puno" name="puno">
+							<th><%=vo.getAktsno() %>번문제</th>
+							<input type="hidden" value="<%=vo.getAktsno()%>" id="aktsno" name="aktsno">
 							<td><%=vo.getQuestion() %></td>
 						</tr>
 						<tr>
@@ -44,7 +44,7 @@ PuVo vo = (PuVo) request.getAttribute("puNextVo");
 					</table>
 				</form>
 					<button type="button" onclick="answer()">확인</button>
-					<button type="button" onclick="location.href='/puNext.do?puno=<%=vo.getPuno()%>'">다음문제</button>
+					<button type="button" onclick="location.href='/aktsNext.do?uyno=<%=vo.getAktsno()%>'">다음문제</button>
 					<button type="button" onclick="location.href='/'">홈으로</button>
 			</div>
 		</div>

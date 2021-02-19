@@ -39,6 +39,7 @@ public class PuDao {
 		return puno;
 	}
 
+	// 프로그래밍언어활용 문제 입력하기
 	public int insertPu(PuVo vo) {
 		PreparedStatement pstmt = null;
 		int count = 0;

@@ -40,6 +40,7 @@ public class SqlhyDao {
 		return sqlhyno;
 	}
 
+	// SQL활용 문제 입력하기
 	public int insertSqlhy(SqlhyVo vo) {
 		PreparedStatement pstmt = null;
 		int count = 0;

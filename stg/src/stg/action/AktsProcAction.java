@@ -7,15 +7,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import stg.common.Action;
 import stg.common.ActionForward;
-import stg.service.SqlhyService;
-import stg.vo.SqlhyVo;
+import stg.service.AktsService;
+import stg.vo.AktsVo;
 
 
-public class SqlhyProcAction implements Action{
+public class AktsProcAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// SQL활용 문제, 답 저장하기
-		String sqlhyno = request.getParameter("sqlhyno");
+		// 애플리케이션테스트수행 문제, 답 저장하기
+		String aktsno = request.getParameter("aktsno");
 		String question = request.getParameter("question");
 		String answer = request.getParameter("answer");
 
@@ -28,18 +28,18 @@ public class SqlhyProcAction implements Action{
 			return null;
 		}
 		
-		SqlhyVo vo = new SqlhyVo();
-		vo.setSqlhyno(Integer.parseInt(sqlhyno));
+		AktsVo vo = new AktsVo();
+		vo.setAktsno(Integer.parseInt(aktsno));
 		vo.setQuestion(question);
 		vo.setAnswer(answer);
 		
-		SqlhyService svc = new SqlhyService();
+		AktsService svc = new AktsService();
 		
-		svc.insertSqlhy(vo);
+		svc.insertAkts(vo);
 		
 		response.setContentType("text/html;charset=UTF-8;");
 		PrintWriter out = response.getWriter();
-		out.println("<script>alert('문제를 생성했습니다.');location.href='/uyAction.do';</script>");
+		out.println("<script>alert('문제를 생성했습니다.');location.href='/aktsAction.do';</script>");
 		out.close();
 		return null;
 		

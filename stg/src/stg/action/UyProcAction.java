@@ -39,7 +39,7 @@ public class UyProcAction implements Action{
 		
 		response.setContentType("text/html;charset=UTF-8;");
 		PrintWriter out = response.getWriter();
-		out.println("<script>alert('문제를 생성했습니다.');location.href='/puAction.do';</script>");
+		out.println("<script>alert('문제를 생성했습니다.');location.href='/uyAction.do';</script>");
 		out.close();
 		return null;
 		

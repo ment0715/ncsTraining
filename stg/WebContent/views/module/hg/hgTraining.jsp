@@ -8,7 +8,7 @@ HgVo vo = (HgVo) request.getAttribute("hgVo");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>화면구현 공부하기</title>
+<title>화면구현 Training</title>
 <script type="text/javascript">
 	function answer(){
 		var answer = document.getElementById('answer');
