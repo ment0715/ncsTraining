@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import stg.action.AkbfAction;
+import stg.action.AkbfNextAction;
+import stg.action.AkbfProcAction;
+import stg.action.AkbfTrainingAction;
+import stg.action.AkbfTrainingProcAction;
 import stg.action.AktsAction;
 import stg.action.AktsNextAction;
 import stg.action.AktsProcAction;
@@ -252,6 +257,46 @@ public class StgController extends HttpServlet {
 			}
 		}else if (command.equals("/aktsNext.do")) { // 애플리케이션테스트수행 다음문제 이동하기
 			action = new AktsNextAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/akbfAction.do")) { // 애플리케이션배포 트레이닝만들기 이동
+			action = new AkbfAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/akbfProc.do")) { // 애플리케이션배포 문제 만들기
+			action = new AkbfProcAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/akbfTraining.do")) { // 애플리케이션배포 문제풀기 
+			action = new AkbfTrainingAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/akbfTrainigProc.do")) { // 애플리케이션배포 답 확인하기
+			action = new AkbfTrainingProcAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/akbfNext.do")) { // 애플리케이션배포 다음문제 이동하기
+			action = new AkbfNextAction();
 			
 			try {
 				forward = action.execute(request, response);
