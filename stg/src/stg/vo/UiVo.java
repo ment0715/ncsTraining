@@ -1,18 +1,17 @@
 package stg.vo;
 
-public class UyVo {
-	private int uyno;
+public class UiVo {
+	private int uino;
 	private String question;
 	private String answer;
 	private String ck;
 	
 	
-	
-	public int getUyno() {
-		return uyno;
+	public int getUino() {
+		return uino;
 	}
-	public void setUyno(int uyno) {
-		this.uyno = uyno;
+	public void setUino(int uino) {
+		this.uino = uino;
 	}
 	public String getQuestion() {
 		return question;
@@ -34,6 +33,8 @@ public class UyVo {
 	}
 	
 	
+	
+
 	
 	
 	}

@@ -57,11 +57,11 @@ public class UyService {
 	}
 	
 	// 응용SW기초기술활용 다음문제 가져오기
-	public UyVo getUyNextQuestion(UyVo uvo) throws Exception{
+	public UyVo getUyNextQuestion(UyVo uyvo) throws Exception{
 		Connection con = new DBConnection().getConnection();
 		UyDao dao = new UyDao(con);
 		
-		UyVo vo = dao.getUyNextQuestion(uvo);
+		UyVo vo = dao.getUyNextQuestion(uyvo);
 		
 		con.close();
 		

@@ -34,6 +34,11 @@ import stg.action.SqlhyNextAction;
 import stg.action.SqlhyProcAction;
 import stg.action.SqlhyTrainingAction;
 import stg.action.SqlhyTrainingProcAction;
+import stg.action.UiAction;
+import stg.action.UiNextAction;
+import stg.action.UiProcAction;
+import stg.action.UiTrainingAction;
+import stg.action.UiTrainingProcAction;
 import stg.action.UyAction;
 import stg.action.UyNextAction;
 import stg.action.UyProcAction;
@@ -303,7 +308,48 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if (command.equals("/uiAction.do")) { // UI테스트 트레이닝만들기 이동
+			action = new UiAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/uiProc.do")) { // UI테스트 문제 만들기
+			action = new UiProcAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/uiTraining.do")) { // UI테스트 문제풀기 
+			action = new UiTrainingAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/uiTrainigProc.do")) { // UI테스트 답 확인하기
+			action = new UiTrainingProcAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/uiNext.do")) { // UI테스트 다음문제 이동하기
+			action = new UiNextAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
 		
 		
 		

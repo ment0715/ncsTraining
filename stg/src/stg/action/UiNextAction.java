@@ -7,21 +7,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import stg.common.Action;
 import stg.common.ActionForward;
-import stg.service.UyService;
-import stg.vo.UyVo;
+import stg.service.UiService;
+import stg.vo.UiVo;
 
-public class UyNextAction implements Action{
+public class UiNextAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 응용SW기초기술활용 다음문제 가져오기 
-		String uyno = request.getParameter("uyno");
+		// UI테스트 다음문제 가져오기 
+		String uino = request.getParameter("uino");
 		
-		UyVo uyvo = new UyVo();
-		uyvo.setUyno(Integer.parseInt(uyno));
+		UiVo uivo = new UiVo();
+		uivo.setUino(Integer.parseInt(uino));
 		
-		UyService svc = new UyService();
+		UiService svc = new UiService();
 		
-		UyVo vo = svc.getUyNextQuestion(uyvo);
+		UiVo vo = svc.getUiNextQuestion(uivo);
 		
 		// 다음문제가 없을경우 예외처리
 		if (vo.getQuestion() == null) {
@@ -32,10 +32,10 @@ public class UyNextAction implements Action{
 			return null;
 		}
 		
-		request.setAttribute("uyNextVo", vo);
+		request.setAttribute("uiNextVo", vo);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("/views/module/uy/uyNextQuestion.jsp");
+		forward.setPath("/views/module/ui/uiNextQuestion.jsp");
 		return forward;
 	}
 

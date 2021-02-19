@@ -17,7 +17,7 @@
 		<button type="button" onclick="location.href='/uyAction.do'">응용SW기초기술활용	</button>
 		<button type="button" onclick="location.href='/aktsAction.do'">애플리케이션테스트수행</button>
 		<button type="button" onclick="location.href='/akbfAction.do'">애플리케이션배포</button>
-		<button type="button" onclick="location.href='/'">UI테스트</button>
+		<button type="button" onclick="location.href='/uiAction.do'">UI테스트</button>
 	</div>
 </body>
 </html>
