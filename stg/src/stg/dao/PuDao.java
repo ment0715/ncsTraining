@@ -147,6 +147,33 @@ public class PuDao {
 		return vo;
 	}
 	
+	// 프로그래밍언어활용 랜덤문제 가져오기
+	public PuVo getPuRandomQuestion() {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		PuVo vo = new PuVo();
+		
+		try {
+			pstmt = con.prepareStatement("select * from (select * from pu order by dbms_random.value) where rownum <=5 and rownum = 1");
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+			vo.setPuno(rs.getInt("puno"));
+			vo.setQuestion(rs.getString("question"));
+			vo.setAnswer(rs.getString("answer"));
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				rs.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return vo;
+	}
 	
 	
 

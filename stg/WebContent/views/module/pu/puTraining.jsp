@@ -47,6 +47,7 @@ PuVo vo = (PuVo) request.getAttribute("puVo");
 					</form>
 					<button type="button" onclick="answer()">확인</button>
 					<button type="button" onclick="location.href='/puNext.do?puno=<%=vo.getPuno()%>'">다음문제</button>
+					<button type="button" onclick="location.href='/randomPuTraining.do'">랜덤문제</button>
 					<button type="button" onclick="location.href='/'">홈으로</button>
 				</div>		
 			</div>

@@ -27,6 +27,7 @@ import stg.action.HgTrainingProcAction;
 import stg.action.PuAction;
 import stg.action.PuNextAction;
 import stg.action.PuProcAction;
+import stg.action.PuRandomTrainingAction;
 import stg.action.PuTrainingAction;
 import stg.action.PuTrainingProcAction;
 import stg.action.SqlhyAction;
@@ -348,7 +349,16 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if (command.equals("/randomPuTraining.do")) { // 프로그래밍언어활용 랜덤 트레이닝
+			action = new PuRandomTrainingAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
 		
 		
 		

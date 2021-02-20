@@ -69,5 +69,18 @@ public class PuService {
 		
 	}
 	
+	
+	// 프로그래밍언어활용 랜덤문제 가져오기
+	public PuVo getPuRandomQuestion() throws Exception{
+		Connection con = new DBConnection().getConnection();
+		PuDao dao = new PuDao(con);
+		
+		PuVo vo = dao.getPuRandomQuestion();
+		
+		con.close();
+		
+		return vo;
+		
+	}
 
 }

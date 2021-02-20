@@ -13,6 +13,5 @@
 	<section>
 		<jsp:include page="/views/common/section.jsp"></jsp:include>
 	</section>
-
 </body>
 </html>
