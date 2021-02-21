@@ -4,7 +4,9 @@ import java.sql.Connection;
 
 import stg.common.DBConnection;
 import stg.dao.AkbfDao;
+import stg.dao.PuDao;
 import stg.vo.AkbfVo;
+import stg.vo.PuVo;
 
 public class AkbfService {
 	
@@ -69,5 +71,17 @@ public class AkbfService {
 		
 	}
 	
+	// 애플리케이션배포 랜덤문제 가져오기
+		public AkbfVo getAkbfRandomQuestion() throws Exception{
+			Connection con = new DBConnection().getConnection();
+			AkbfDao dao = new AkbfDao(con);
+			
+			AkbfVo vo = dao.getAkbfRandomQuestion();
+			
+			con.close();
+			
+			return vo;
+			
+		}
 
 }

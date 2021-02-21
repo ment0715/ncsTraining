@@ -39,7 +39,7 @@ public class AkbfProcAction implements Action{
 		
 		response.setContentType("text/html;charset=UTF-8;");
 		PrintWriter out = response.getWriter();
-		out.println("<script>alert('문제를 생성했습니다.');location.href='/aktsAction.do';</script>");
+		out.println("<script>alert('문제를 생성했습니다.');location.href='/akbfAction.do';</script>");
 		out.close();
 		return null;
 		

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import stg.vo.AkbfVo;
+import stg.vo.AktsVo;
 
 
 
@@ -150,7 +151,34 @@ public class AkbfDao {
 		return vo;
 	}
 	
-	
+	// 애플리케이션배포 랜덤문제 가져오기
+				public AkbfVo getAkbfRandomQuestion() {
+					PreparedStatement pstmt = null;
+					ResultSet rs = null;
+					AkbfVo vo = new AkbfVo();
+					
+					try {
+						pstmt = con.prepareStatement("select * from (select * from akbf order by dbms_random.value) where rownum <=5 and rownum = 1");
+						rs = pstmt.executeQuery();
+						
+						while(rs.next()) {
+						vo.setAkbfno(rs.getInt("akbfno"));
+						vo.setQuestion(rs.getString("question"));
+						vo.setAnswer(rs.getString("answer"));
+						}
+					}catch(Exception e) {
+						e.printStackTrace();
+					}finally {
+						try {
+							pstmt.close();
+							rs.close();
+						}catch(Exception e) {
+							e.printStackTrace();
+						}
+					}
+					return vo;
+				}
+				
 	
 
 }

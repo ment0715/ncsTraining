@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import stg.action.akbf.AkbfAction;
 import stg.action.akbf.AkbfNextAction;
 import stg.action.akbf.AkbfProcAction;
+import stg.action.akbf.AkbfRandomTrainingAction;
 import stg.action.akbf.AkbfTrainingAction;
 import stg.action.akbf.AkbfTrainingProcAction;
 import stg.action.akts.AktsAction;
