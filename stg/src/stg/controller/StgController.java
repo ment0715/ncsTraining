@@ -17,6 +17,7 @@ import stg.action.akbf.AkbfTrainingProcAction;
 import stg.action.akts.AktsAction;
 import stg.action.akts.AktsNextAction;
 import stg.action.akts.AktsProcAction;
+import stg.action.akts.AktsRandomTrainingAction;
 import stg.action.akts.AktsTrainingAction;
 import stg.action.akts.AktsTrainingProcAction;
 import stg.action.hg.HgAction;
@@ -45,6 +46,7 @@ import stg.action.ui.UiTrainingProcAction;
 import stg.action.uy.UyAction;
 import stg.action.uy.UyNextAction;
 import stg.action.uy.UyProcAction;
+import stg.action.uy.UyRandomTrainingAction;
 import stg.action.uy.UyTrainingAction;
 import stg.action.uy.UyTrainingProcAction;
 import stg.common.Action;
@@ -255,6 +257,14 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if (command.equals("/randomUyTraining.do")) { // 응용SW기초기술활용 랜덤문제 이동하기
+			action = new UyRandomTrainingAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}else if (command.equals("/aktsAction.do")) { // 애플리케이션테스트수행 트레이닝만들기 이동
 			action = new AktsAction();
 			
@@ -295,6 +305,14 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if (command.equals("/randomAktsTraining.do")) { // 애플리케이션테스트수행 랜덤문제 이동하기
+			action = new AktsRandomTrainingAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}else if (command.equals("/akbfAction.do")) { // 애플리케이션배포 트레이닝만들기 이동
 			action = new AkbfAction();
 			
@@ -329,6 +347,14 @@ public class StgController extends HttpServlet {
 			}
 		}else if (command.equals("/akbfNext.do")) { // 애플리케이션배포 다음문제 이동하기
 			action = new AkbfNextAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/randomAkbfTraining.do")) { // 애플리케이션배포 다음문제 이동하기
+			action = new AkbfRandomTrainingAction();
 			
 			try {
 				forward = action.execute(request, response);

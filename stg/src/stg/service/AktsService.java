@@ -4,7 +4,9 @@ import java.sql.Connection;
 
 import stg.common.DBConnection;
 import stg.dao.AktsDao;
+import stg.dao.PuDao;
 import stg.vo.AktsVo;
+import stg.vo.PuVo;
 
 public class AktsService {
 	
@@ -68,6 +70,19 @@ public class AktsService {
 		return vo;
 		
 	}
+	
+	// 애플리케이션테스트수행 랜덤문제 가져오기
+		public AktsVo getAktsRandomQuestion() throws Exception{
+			Connection con = new DBConnection().getConnection();
+			AktsDao dao = new AktsDao(con);
+			
+			AktsVo vo = dao.getAktsRandomQuestion();
+			
+			con.close();
+			
+			return vo;
+			
+		}
 	
 
 }

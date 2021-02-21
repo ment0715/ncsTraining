@@ -46,6 +46,7 @@ AktsVo vo = (AktsVo) request.getAttribute("aktsVo");
 					</form>
 					<button type="button" onclick="answer()">확인</button>
 					<button type="button" onclick="location.href='/aktsNext.do?aktsno=<%=vo.getAktsno()%>'">다음문제</button>
+					<button type="button" onclick="location.href='/randomAktsTraining.do'">랜덤문제</button>
 					<button type="button" onclick="location.href='/'">홈으로</button>
 				</div>		
 			</div>

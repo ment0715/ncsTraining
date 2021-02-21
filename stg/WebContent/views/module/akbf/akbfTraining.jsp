@@ -46,6 +46,7 @@ AkbfVo vo = (AkbfVo) request.getAttribute("akbfVo");
 					</form>
 					<button type="button" onclick="answer()">확인</button>
 					<button type="button" onclick="location.href='/akbfNext.do?akbfno=<%=vo.getAkbfno()%>'">다음문제</button>
+					<button type="button" onclick="location.href='/randomAkbfTraining.do'">랜덤문제</button>
 					<button type="button" onclick="location.href='/'">홈으로</button>
 				</div>		
 			</div>

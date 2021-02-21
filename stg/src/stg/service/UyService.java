@@ -3,7 +3,9 @@ package stg.service;
 import java.sql.Connection;
 
 import stg.common.DBConnection;
+import stg.dao.PuDao;
 import stg.dao.UyDao;
+import stg.vo.PuVo;
 import stg.vo.UyVo;
 
 public class UyService {
@@ -69,5 +71,18 @@ public class UyService {
 		
 	}
 	
+	
+	// 응용SW기초기술활용 랜덤문제 가져오기
+	public UyVo getUyRandomQuestion() throws Exception{
+		Connection con = new DBConnection().getConnection();
+		UyDao dao = new UyDao(con);
+		
+		UyVo vo = dao.getUyRandomQuestion();
+		
+		con.close();
+		
+		return vo;
+		
+	}
 
 }

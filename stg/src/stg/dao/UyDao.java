@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import stg.vo.PuVo;
 import stg.vo.UyVo;
 
 
@@ -149,7 +150,34 @@ public class UyDao {
 		return vo;
 	}
 	
-	
+	// 응용SW기초기술활용 랜덤문제 가져오기
+		public UyVo getUyRandomQuestion() {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			UyVo vo = new UyVo();
+			
+			try {
+				pstmt = con.prepareStatement("select * from (select * from uy order by dbms_random.value) where rownum <=5 and rownum = 1");
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+				vo.setUyno(rs.getInt("uyno"));
+				vo.setQuestion(rs.getString("question"));
+				vo.setAnswer(rs.getString("answer"));
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					pstmt.close();
+					rs.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return vo;
+		}
+		
 	
 
 }
