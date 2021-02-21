@@ -22,6 +22,7 @@ import stg.action.akts.AktsTrainingProcAction;
 import stg.action.hg.HgAction;
 import stg.action.hg.HgNextAction;
 import stg.action.hg.HgProcAction;
+import stg.action.hg.HgRandomTrainingAction;
 import stg.action.hg.HgTrainingAction;
 import stg.action.hg.HgTrainingProcAction;
 import stg.action.pu.PuAction;
@@ -109,6 +110,14 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if (command.equals("/randomHgTraining.do")) { // 화면구현 랜덤문제 이동하기
+			action = new HgRandomTrainingAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}else if (command.equals("/puAction.do")) { // 프로그래밍언어활용 트레이닝만들기 이동
 			action = new PuAction();
 			
@@ -143,6 +152,14 @@ public class StgController extends HttpServlet {
 			}
 		}else if (command.equals("/puNext.do")) { // 프로그래밍언어활용 다음문제 이동하기
 			action = new PuNextAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/randomPuTraining.do")) { // 프로그래밍언어활용 랜덤 트레이닝
+			action = new PuRandomTrainingAction();
 			
 			try {
 				forward = action.execute(request, response);
@@ -349,16 +366,7 @@ public class StgController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if (command.equals("/randomPuTraining.do")) { // 프로그래밍언어활용 랜덤 트레이닝
-			action = new PuRandomTrainingAction();
-			
-			try {
-				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
 		}
-		
 		
 		
 		

@@ -4,7 +4,9 @@ import java.sql.Connection;
 
 import stg.common.DBConnection;
 import stg.dao.HgDao;
+import stg.dao.PuDao;
 import stg.vo.HgVo;
+import stg.vo.PuVo;
 
 public class HgService {
 	
@@ -62,6 +64,20 @@ public class HgService {
 		HgDao dao = new HgDao(con);
 		
 		HgVo vo = dao.getHgNextQuestion(hvo);
+		
+		con.close();
+		
+		return vo;
+		
+	}
+	
+	
+	// 화면구현 랜덤문제 가져오기
+	public HgVo getHgRandomQuestion() throws Exception{
+		Connection con = new DBConnection().getConnection();
+		HgDao dao = new HgDao(con);
+		
+		HgVo vo = dao.getHgRandomQuestion();
 		
 		con.close();
 		

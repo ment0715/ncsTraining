@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import stg.vo.HgVo;
+import stg.vo.PuVo;
 
 public class HgDao {
 	private Connection con;
@@ -147,7 +148,34 @@ public class HgDao {
 		return vo;
 	}
 	
-	
+	// 화면구현 랜덤문제 가져오기
+		public HgVo getHgRandomQuestion() {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			HgVo vo = new HgVo();
+			
+			try {
+				pstmt = con.prepareStatement("select * from (select * from hg order by dbms_random.value) where rownum <=5 and rownum = 1");
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+				vo.setHgno(rs.getInt("hgno"));
+				vo.setQuestion(rs.getString("question"));
+				vo.setAnswer(rs.getString("answer"));
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					pstmt.close();
+					rs.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return vo;
+		}
+		
 	
 
 }
