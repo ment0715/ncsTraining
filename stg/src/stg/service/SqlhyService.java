@@ -3,7 +3,9 @@ package stg.service;
 import java.sql.Connection;
 
 import stg.common.DBConnection;
+import stg.dao.PuDao;
 import stg.dao.SqlhyDao;
+import stg.vo.PuVo;
 import stg.vo.SqlhyVo;
 
 public class SqlhyService {
@@ -69,5 +71,18 @@ public class SqlhyService {
 		
 	}
 	
+	
+	// SQL활용 랜덤문제 가져오기
+	public SqlhyVo getSqlhyRandomQuestion() throws Exception{
+		Connection con = new DBConnection().getConnection();
+		SqlhyDao dao = new SqlhyDao(con);
+		
+		SqlhyVo vo = dao.getSqlhyRandomQuestion();
+		
+		con.close();
+		
+		return vo;
+		
+	}
 
 }

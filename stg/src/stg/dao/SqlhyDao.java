@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import stg.vo.PuVo;
 import stg.vo.SqlhyVo;
 
 
@@ -148,6 +149,34 @@ public class SqlhyDao {
 		return vo;
 	}
 	
+	// SQL활용 랜덤문제 가져오기
+		public SqlhyVo getSqlhyRandomQuestion() {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			SqlhyVo vo = new SqlhyVo();
+			
+			try {
+				pstmt = con.prepareStatement("select * from (select * from sqlhy order by dbms_random.value) where rownum <=5 and rownum = 1");
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+				vo.setSqlhyno(rs.getInt("sqlhyno"));
+				vo.setQuestion(rs.getString("question"));
+				vo.setAnswer(rs.getString("answer"));
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					pstmt.close();
+					rs.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return vo;
+		}
+		
 	
 	
 

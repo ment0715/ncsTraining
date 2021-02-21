@@ -47,6 +47,7 @@ SqlhyVo vo = (SqlhyVo) request.getAttribute("sqlhyVo");
 					</form>
 					<button type="button" onclick="answer()">확인</button>
 					<button type="button" onclick="location.href='/sqlhyNext.do?sqlhyno=<%=vo.getSqlhyno()%>'">다음문제</button>
+					<button type="button" onclick="location.href='/randomSqlhyTraining.do'">랜덤문제</button>
 					<button type="button" onclick="location.href='/'">홈으로</button>
 				</div>		
 			</div>

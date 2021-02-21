@@ -34,6 +34,7 @@ import stg.action.pu.PuTrainingProcAction;
 import stg.action.sqlhy.SqlhyAction;
 import stg.action.sqlhy.SqlhyNextAction;
 import stg.action.sqlhy.SqlhyProcAction;
+import stg.action.sqlhy.SqlhyRandomTrainingAction;
 import stg.action.sqlhy.SqlhyTrainingAction;
 import stg.action.sqlhy.SqlhyTrainingProcAction;
 import stg.action.ui.UiAction;
@@ -200,6 +201,14 @@ public class StgController extends HttpServlet {
 			}
 		}else if (command.equals("/sqlhyNext.do")) { // SQL활용 다음문제 이동하기
 			action = new SqlhyNextAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/randomSqlhyTraining.do")) { // SQL활용 랜덤문제 이동하기
+			action = new SqlhyRandomTrainingAction();
 			
 			try {
 				forward = action.execute(request, response);
