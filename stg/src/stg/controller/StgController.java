@@ -42,6 +42,7 @@ import stg.action.sqlhy.SqlhyTrainingProcAction;
 import stg.action.ui.UiAction;
 import stg.action.ui.UiNextAction;
 import stg.action.ui.UiProcAction;
+import stg.action.ui.UiRandomTrainingAction;
 import stg.action.ui.UiTrainingAction;
 import stg.action.ui.UiTrainingProcAction;
 import stg.action.uy.UyAction;
@@ -396,6 +397,14 @@ public class StgController extends HttpServlet {
 			}
 		}else if (command.equals("/uiNext.do")) { // UI테스트 다음문제 이동하기
 			action = new UiNextAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/randomUiTraining.do")) { // UI테스트 랜덤문제 이동하기
+			action = new UiRandomTrainingAction();
 			
 			try {
 				forward = action.execute(request, response);

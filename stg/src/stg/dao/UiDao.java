@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import stg.vo.UiVo;
+import stg.vo.UyVo;
 
 
 public class UiDao {
@@ -148,7 +149,34 @@ public class UiDao {
 		return vo;
 	}
 	
-	
+	// UI테스트 랜덤문제 가져오기
+			public UiVo getUiRandomQuestion() {
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				UiVo vo = new UiVo();
+				
+				try {
+					pstmt = con.prepareStatement("select * from (select * from ui order by dbms_random.value) where rownum <=5 and rownum = 1");
+					rs = pstmt.executeQuery();
+					
+					while(rs.next()) {
+					vo.setUino(rs.getInt("uino"));
+					vo.setQuestion(rs.getString("question"));
+					vo.setAnswer(rs.getString("answer"));
+					}
+				}catch(Exception e) {
+					e.printStackTrace();
+				}finally {
+					try {
+						pstmt.close();
+						rs.close();
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+				}
+				return vo;
+			}
+			
 	
 
 }

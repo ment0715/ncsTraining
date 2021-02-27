@@ -4,7 +4,9 @@ import java.sql.Connection;
 
 import stg.common.DBConnection;
 import stg.dao.UiDao;
+import stg.dao.UyDao;
 import stg.vo.UiVo;
+import stg.vo.UyVo;
 
 public class UiService {
 	
@@ -62,6 +64,19 @@ public class UiService {
 		UiDao dao = new UiDao(con);
 		
 		UiVo vo = dao.getUiNextQuestion(uivo);
+		
+		con.close();
+		
+		return vo;
+		
+	}
+	
+	// UI테스트 랜덤문제 가져오기
+	public UiVo getUiRandomQuestion() throws Exception{
+		Connection con = new DBConnection().getConnection();
+		UiDao dao = new UiDao(con);
+		
+		UiVo vo = dao.getUiRandomQuestion();
 		
 		con.close();
 		

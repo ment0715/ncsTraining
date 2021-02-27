@@ -46,6 +46,7 @@ UiVo vo = (UiVo) request.getAttribute("uiVo");
 					</form>
 					<button type="button" onclick="answer()">확인</button>
 					<button type="button" onclick="location.href='/uiNext.do?uino=<%=vo.getUino()%>'">다음문제</button>
+					<button type="button" onclick="location.href='/randomUiTraining.do'">랜덤문제</button>
 					<button type="button" onclick="location.href='/'">홈으로</button>
 				</div>		
 			</div>

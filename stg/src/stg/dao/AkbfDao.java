@@ -166,8 +166,8 @@ public class AkbfDao {
 						vo.setQuestion(rs.getString("question"));
 						vo.setAnswer(rs.getString("answer"));
 						}
-					}catch(Exception e) {
-						e.printStackTrace();
+					}catch(Exception e) { 
+						
 					}finally {
 						try {
 							pstmt.close();
