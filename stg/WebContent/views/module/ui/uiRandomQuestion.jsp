@@ -28,7 +28,7 @@
 		<jsp:include page="/views/common/header.jsp"></jsp:include>
 	</header>
 	<section class="empty">
-		<h3>UI테스트 랜덤 문제풀기</h3>
+		<h3>UI테스트 랜덤 Training</h3>
 		<div class="divCenter">
 			<div class="divCenter2">
 				<form action="/uiTrainigProc.do" method="post" id="uiNForm">

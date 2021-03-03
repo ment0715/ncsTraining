@@ -27,7 +27,8 @@
 	<header>
 		<jsp:include page="/views/common/header.jsp"></jsp:include>
 	</header>
-	<section>
+	<section class="empty">
+		<h3>애플리케이션배포 랜덤 Training</h3>
 		<div class="divCenter">
 			<div class="divCenter2">
 				<form action="/akbfTrainigProc.do" method="post" id="akbfNForm">

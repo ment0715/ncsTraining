@@ -27,7 +27,8 @@
 	<header>
 		<jsp:include page="/views/common/header.jsp"></jsp:include>
 	</header>
-	<section>
+	<section class="empty">
+		<h3>SQL활용 랜덤 Training</h3>
 		<div class="divCenter">
 			<div class="divCenter2">
 				<form action="/sqlhyTrainigProc.do" method="post" id="sqlhyNForm">
